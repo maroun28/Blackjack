@@ -1,0 +1,150 @@
+In the following project as a first project to apply my python learning i am  build a Blackjack game aka Twenty-One
+as previous knowledge in web and oop programming this is a way to start becoming more familiar with Pyhton its libraries
+how to integrate and use open sources all the way to building more big projecs AI, automation, web or data related using python
+
+🃏 what blackjack actually is
+blackjack is a card game between a player and a dealer.
+you are not playing against other players, only against the dealer.
+the goal is simple:
+👉 get a hand value closer to 21 than the dealer, without going over 21.
+
+🧱 what the game is made of
+
+🎴 deck
+standard 52-card deck
+sometimes multiple decks are used (but rules stay the same)
+card values:
+number cards (2–10) → worth their number
+face cards (jack, queen, king) → worth 10
+ace → can be:
+1 or
+11 (depends on what helps the hand more)
+
+👥 roles
+
+🧍 player
+can make decisions (hit, stand, etc.)
+
+🧑‍💼 dealer
+follows fixed rules (no decision-making freedom like player)
+
+▶️ how a round starts
+player places a bet
+both player and dealer get 2 cards each
+player: both cards face up
+
+dealer:
+1 card face up (visible)
+1 card face down (hidden)
+
+🧮 hand value calculation
+you add up card values.
+special rule for ace:
+if counting it as 11 makes you go over 21 → it becomes 1 instead
+👉 example:
+ace + 9 = 20
+ace + 9 + 5 = 15 (ace becomes 1, not 11)
+
+🎯 blackjack (natural)
+if your first 2 cards = 21 exactly:
+(ace + 10-value card)
+this is called blackjack
+usually beats everything except dealer blackjack
+
+🔁 player turn (your decisions)
+you go first.
+you can choose:
+1. hit
+take another card
+can repeat as many times as you want
+
+2. stand
+stop taking cards
+keep your current total
+
+3. bust
+if your total > 21
+👉 you immediately lose
+
+🤖 dealer turn (fixed behavior)
+after player finishes:
+dealer reveals hidden card, then:
+must hit if total < 17
+must stand if total ≥ 17
+👉 important detail:
+some rules say dealer must hit on "soft 17" (ace counted as 11)
+others say stand — depends on version
+
+🏁 how the winner is decided
+after both turns:
+
+cases:
+✅ player wins if:
+player total > dealer total (≤ 21)
+dealer busts (> 21)
+
+❌ player loses if:
+player busts
+dealer total > player total
+
+🤝 push (tie)
+same total → bet returned
+
+💰 payouts (basic)
+normal win → 1:1 (you double your bet)
+blackjack → usually 3:2
+loss → you lose your bet
+
+🧠 important concepts
+🔹 hard hand
+no ace OR ace counted as 1
+🔹 soft hand
+ace counted as 11
+example:
+ace + 6 = soft 17
+🔹 bust logic
+a hand is bust if:
+total > 21 after adjusting aces if possible
+🔹 multiple hits
+you can keep hitting until:
+you stand
+or you bust
+
+⚠️ optional rules (depending on version)
+these exist in real blackjack but you may or may not include them:
+🔸 double down
+double your bet
+take exactly 1 more card
+then forced to stand
+🔸 split
+if first 2 cards have same value:
+split into 2 hands
+play each separately
+🔸 insurance
+if dealer shows ace:
+side bet in case dealer has blackjack
+
+🔄 full round summary
+bet placed
+cards dealt (2 each)
+check for blackjack
+player turn (hit/stand until done)
+dealer turn (automatic rules)
+compare results
+payout
+
+🧩 edge cases you must understand
+ace switching between 1 and 11 dynamically
+blackjack only counts on first 2 cards
+dealer plays after player finishes
+player bust = instant loss (dealer doesn’t even need to play)
+dealer bust = all remaining players win
+
+🧠 mental model (important)
+think of blackjack as:
+a state-based game
+with:
+a hand total
+card list
+a turn phase (player / dealer)
+rules that trigger automatically
